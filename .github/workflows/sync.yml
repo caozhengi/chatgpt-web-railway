@@ -1,0 +1,15 @@
+name: Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: repo-sync/github-sync@v2
+        with:
+          source_repo: 'https://github.com/Chanzhaoyu/chatgpt-web'
+          target_repo: 'https://github.com/caozhengi/chatgpt-web-railway'
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          source_branch: 'main'
